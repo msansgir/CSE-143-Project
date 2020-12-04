@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+    <head>
+ 
+        <meta charset = "UTF-8">
+        <title>Breast Cancer Classification</title>
+
+        <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIg
+            NTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8y
+            MDAwL3N2ZyI+PGc+PHBhdGggZD0ibTMyNC40NjYgMzIxLjA1NiA0NS42NDQtNDUuNjQ0YzYyLjkyLTYyLjkyIDYyLjkyLTE2NS4zIDAt
+            MjI4LjIyMS0zMS40Ni0zMS40NjEtNzIuNzg1LTQ3LjE5MS0xMTQuMTEtNDcuMTkxbC0yMCA1MS42NjcgMjAgNDUuMTE0YzE2LjUzIDAgM
+            zMuMDYgNi4yOTIgNDUuNjQ0IDE4Ljg3NiAxMi4xOTIgMTIuMTkyIDE4LjkwNyAyOC40MDIgMTguOTA3IDQ1LjY0NHMtNi43MTUgMzMuN
+            DUzLTE4LjkwNyA0NS42NDVsLTQ1LjY0NCA0NS42NDMtMjAgNjguNDY2IDIwIDY4LjQ2NiAxMjIuNDc4IDEyMi40NzkgNjguNDY2LTY4Lj
+            Q2NnoiIGZpbGw9IiNmMzciLz48cGF0aCBkPSJtMjU2IDk2Ljc4MXYtOTYuNzgxYy00MS4zMjUgMC04Mi42NSAxNS43My0xMTQuMTEgNDc
+            uMTkxLTYyLjkyIDYyLjkyMS02Mi45MiAxNjUuMzAxIDAgMjI4LjIyMWw0NS42NDQgNDUuNjQ0LTEyMi40NzggMTIyLjQ3OCA2OC40NjYg
+            NjguNDY2IDEyMi40NzgtMTIyLjQ3OHYtMTM2LjkzM2wtNDUuNjQ0LTQ1LjY0NGMtMTIuMTkyLTEyLjE5Mi0xOC45MDctMjguNDAyLTE4Lj
+            kwNy00NS42NDUgMC0xNy4yNDIgNi43MTUtMzMuNDUyIDE4LjkwNy00NS42NDQgMTIuNTg0LTEyLjU4MyAyOS4xMTQtMTguODc1IDQ1LjY0
+            NC0xOC44NzV6IiBmaWxsPSIjZmY4MDgwIi8+PC9nPjwvc3ZnPg==">
+
+        <script>
+
+            function showResources(classification) {
+                
+                if(classification == "Malignant"){
+                    document.getElementById("malignantResources").style="visibility: visible;"
+                    document.getElementById("benignResources").style="visibility: hidden;"
+
+                }else if(classification == "Benign"){
+                    document.getElementById("benignResources").style="visibility: visible;"
+                    document.getElementById("malignantResources").style="visibility: hidden;"
+
+                }else{
+                    document.getElementById("malignantResources").style="visibility: hidden;"
+                    document.getElementById("benignResources").style="visibility: hidden;"
+                }
+            }
+
+        </script>
+        
+        <style>
+            
+            /* Font from google */
+            @import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
+
+            body {
+                background-color: rgb(247, 178, 207);
+            }
+
+            h1   {
+                color: rgb(245, 50, 131);
+                font-family: 'Vidaloka', serif;
+                font-size: 60px;
+                margin: auto;
+                text-align: center;
+                margin-top: 25px;
+            }
+
+            h5  {
+                color: rgb(58, 53, 53);
+                font-family: 'Vidaloka', serif;
+                font-size: 20px;
+                margin-top: 100px;
+                text-align: center;
+            } 
+
+            h2{
+                color: rgb(58, 53, 53);
+                font-family: 'Vidaloka', serif;
+                font-size: 20px;
+                margin-left: 25px;
+            }
+
+            input[type=text], select, textarea {
+                width: 13%; 
+                padding: 12px;  
+                font-family: 'Vidaloka', serif;
+                font-size: 15px;
+                border: 1px solid #ccc; 
+                border-radius: 4px; 
+                box-sizing: border-box;  
+                margin-top: 6px; 
+                margin-right: 6px;
+                margin-left: 6px;
+                margin-bottom: 16px; 
+            }
+
+            button[type=submit]{
+                width: 150px;
+                margin-left: 8px;
+                height: 50px;
+                box-sizing: border-box;
+                background-color: rgb(252, 115, 172);
+                color: rgb(231, 219, 219);
+                font-weight: bold;
+                font-size: 25px;
+                border-color:   rgb(252, 115, 172);
+                border-radius: 4px; 
+                font-family: 'Vidaloka', serif;;
+            } 
+
+            button[type=submit]:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+            }
+
+            .logoDiv{
+                background: rgba(247, 178, 207, 0);
+                margin: -43px;
+                margin-left: -350px;
+                border: 1px solid rgba(247, 178, 207, 0);
+                position: relative;
+                height: 20px;
+            }
+
+            #logo{
+                position: absolute;
+                margin: auto;
+                height: 65px;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            #logo2{
+                position: absolute;
+                margin: auto;
+                height: 65px;
+                top: 0;
+                left: 600px;
+                right: 0;
+                bottom: 0;
+            }
+
+            #malignantResources{
+                position:absolute;
+                top:485;
+                color: rgb(58, 53, 53);
+                font-family: 'Vidaloka', serif;
+                font-size: 20px;
+                margin-left: 25px;
+                font-weight: bold;
+            }
+
+            #benignResources{
+                position:absolute;
+                top:485;
+                color: rgb(58, 53, 53);
+                font-family: 'Vidaloka', serif;
+                font-size: 20px;
+                margin-left: 25px;
+                font-weight: bold;
+            }
+
+            #listOfResources{
+                margin-top: 10px;
+            }
+
+           h3{  
+                color: rgb(58, 53, 53);
+                font-family: 'Vidaloka', serif;
+                font-size: 20px;
+                text-align: center;
+            }
+
+            h4{
+                color: rgb(245, 50, 131);
+                font-family: 'Vidaloka', serif;
+                font-size: 30px;
+                text-align: center;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <div>
+            <h1>BCDn</h1>
+
+            <div class = "logoDiv">
+                <img src = "data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIg
+                NTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8y
+                MDAwL3N2ZyI+PGc+PHBhdGggZD0ibTMyNC40NjYgMzIxLjA1NiA0NS42NDQtNDUuNjQ0YzYyLjkyLTYyLjkyIDYyLjkyLTE2NS4zIDAt
+                MjI4LjIyMS0zMS40Ni0zMS40NjEtNzIuNzg1LTQ3LjE5MS0xMTQuMTEtNDcuMTkxbC0yMCA1MS42NjcgMjAgNDUuMTE0YzE2LjUzIDAgM
+                zMuMDYgNi4yOTIgNDUuNjQ0IDE4Ljg3NiAxMi4xOTIgMTIuMTkyIDE4LjkwNyAyOC40MDIgMTguOTA3IDQ1LjY0NHMtNi43MTUgMzMuN
+                DUzLTE4LjkwNyA0NS42NDVsLTQ1LjY0NCA0NS42NDMtMjAgNjguNDY2IDIwIDY4LjQ2NiAxMjIuNDc4IDEyMi40NzkgNjguNDY2LTY4Lj
+                Q2NnoiIGZpbGw9IiNmMzciLz48cGF0aCBkPSJtMjU2IDk2Ljc4MXYtOTYuNzgxYy00MS4zMjUgMC04Mi42NSAxNS43My0xMTQuMTEgNDc
+                uMTkxLTYyLjkyIDYyLjkyMS02Mi45MiAxNjUuMzAxIDAgMjI4LjIyMWw0NS42NDQgNDUuNjQ0LTEyMi40NzggMTIyLjQ3OCA2OC40NjYg
+                NjguNDY2IDEyMi40NzgtMTIyLjQ3OHYtMTM2LjkzM2wtNDUuNjQ0LTQ1LjY0NGMtMTIuMTkyLTEyLjE5Mi0xOC45MDctMjguNDAyLTE4Lj
+                kwNy00NS42NDUgMC0xNy4yNDIgNi43MTUtMzMuNDUyIDE4LjkwNy00NS42NDQgMTIuNTg0LTEyLjU4MyAyOS4xMTQtMTguODc1IDQ1LjY0
+                NC0xOC44NzV6IiBmaWxsPSIjZmY4MDgwIi8+PC9nPjwvc3ZnPg==" id="logo">
+                <img src = "data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIg
+                NTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8y
+                MDAwL3N2ZyI+PGc+PHBhdGggZD0ibTMyNC40NjYgMzIxLjA1NiA0NS42NDQtNDUuNjQ0YzYyLjkyLTYyLjkyIDYyLjkyLTE2NS4zIDAt
+                MjI4LjIyMS0zMS40Ni0zMS40NjEtNzIuNzg1LTQ3LjE5MS0xMTQuMTEtNDcuMTkxbC0yMCA1MS42NjcgMjAgNDUuMTE0YzE2LjUzIDAgM
+                zMuMDYgNi4yOTIgNDUuNjQ0IDE4Ljg3NiAxMi4xOTIgMTIuMTkyIDE4LjkwNyAyOC40MDIgMTguOTA3IDQ1LjY0NHMtNi43MTUgMzMuN
+                DUzLTE4LjkwNyA0NS42NDVsLTQ1LjY0NCA0NS42NDMtMjAgNjguNDY2IDIwIDY4LjQ2NiAxMjIuNDc4IDEyMi40NzkgNjguNDY2LTY4Lj
+                Q2NnoiIGZpbGw9IiNmMzciLz48cGF0aCBkPSJtMjU2IDk2Ljc4MXYtOTYuNzgxYy00MS4zMjUgMC04Mi42NSAxNS43My0xMTQuMTEgNDc
+                uMTkxLTYyLjkyIDYyLjkyMS02Mi45MiAxNjUuMzAxIDAgMjI4LjIyMWw0NS42NDQgNDUuNjQ0LTEyMi40NzggMTIyLjQ3OCA2OC40NjYg
+                NjguNDY2IDEyMi40NzgtMTIyLjQ3OHYtMTM2LjkzM2wtNDUuNjQ0LTQ1LjY0NGMtMTIuMTkyLTEyLjE5Mi0xOC45MDctMjguNDAyLTE4Lj
+                kwNy00NS42NDUgMC0xNy4yNDIgNi43MTUtMzMuNDUyIDE4LjkwNy00NS42NDQgMTIuNTg0LTEyLjU4MyAyOS4xMTQtMTguODc1IDQ1LjY0
+                NC0xOC44NzV6IiBmaWxsPSIjZmY4MDgwIi8+PC9nPjwvc3ZnPg==" id="logo2">
+            </div>
+            
+            <h5>- Breast Cancer Classification -</h5>
+
+            <h2>Enter your data:</h2>
+
+            <form action="{{ url_for('predict')}}"method="post">
+                <input type = "text" name = "mean_radius" placeholder = "Mean Radius" required ="required" />
+                <input type = "text" name = "mean_texture" placeholder = "Mean Texture" required ="required" />
+                <input type = "text" name = "mean_smoothness" placeholder = "Mean Smoothness" required ="required" />
+                <input type = "text" name = "mean_compactness" placeholder = "Mean Compactness" required ="required" />
+                <input type = "text" name = "mean_concave_points" placeholder = "Mean Concave Points" required ="required" />
+                <input type = "text" name = "mean_symmetry" placeholder = "Mean Symmetry" required ="required" />
+                <input type = "text" name = "mean_fractal" placeholder = "Mean Fractal Required" required = "required" />
+                <input type = "text" name = "radius_se" placeholder = "Radius SE" required ="required" />
+                <input type = "text" name = "texture_se" placeholder = "Texture SE" required ="required" />
+                <input type = "text" name = "smoothness_se" placeholder = "Smoothness SE" required ="required" />
+                <input type = "text" name = "compactness_se" placeholder = "Compactness SE" required ="required" />
+                <input type = "text" name = "concavity_se" placeholder = "Concavity SE" required ="required" />
+                <input type = "text" name = "concave points_se" placeholder = "Concave Points SE" required ="required" />
+                <input type = "text" name = "symmetry_se" placeholder = "Symmetry SE" required ="required" />
+                <input type = "text" name = "fractal_dimension_se" placeholder = "Fractal Dimension SE" required ="required" />
+                <input type = "text" name = "smoothness_worst" placeholder = "Smoothness Worst" required ="required" />
+                <input type = "text" name = "concavity_worst" placeholder = "Concavity Worst" required ="required" />
+                <input type = "text" name = "symmetry_worst" placeholder = "Symmetry Worst" required ="required" />
+                <input type = "text" name = "fractal_dimension_worst" placeholder = "Fractal Dimension Worst" required ="required" />
+                <button type = "submit">Predict</button>
+            </form>
+
+            <div>
+                
+                <h3 id> According to the data entered, the tumor is... </h3>
+
+                <h4>{{prediction_text}}</h4>
+
+                <div id = "malignantResources">Resources for Malignant Classification: 
+                    <ul id= "listOfResources">
+                        <li id= "listOfResources"><a href="https://www.cancer.org/cancer/breast-cancer/about/what-is-breast-cancer.html" 
+                            target="_blank">What is Breast Cancer?</a></li>
+                        <li id= "listOfResources"><a href="https://www.nationalbreastcancer.org/breast-tumors/" 
+                            target="_blank">Breast Tumors</a></li>
+                        <li id= "listOfResources"><a href="https://cancer.stonybrookmedicine.edu/breast-cancer-team/patients/bse/breastlumps" 
+                            target="_blank">Different Kinds of Breast Lumps</a></li>
+                        <li id= "listOfResources"><a href="https://www.cancercenter.com/cancer-types/breast-cancer/types" 
+                            target="_blank">Breast Cancer Types</a></li>
+                        <li id= "listOfResources"><a href="https://www.healthline.com/health/breast-cancer" 
+                            target="_blank">A Comprehensive Guide to Breast Cancer</a></li>                        
+                    </ul>
+                </div>
+
+                <div id = "benignResources">Resources for Benign Classification:
+                    <ul id= "listOfResources">
+                        <li id= "listOfResources"><a href="https://www.breastcancer.org/symptoms/benign#:~:text=Benign%20(non%2Dcancerous)
+                            %20breast,those%20caused%20by%20breast%20cancer." target="_blank">Benign Breast Conditions</a></li>
+                        <li id= "listOfResources"><a href="https://cancer.stonybrookmedicine.edu/breast-cancer-team/patients/bse/breastlumps" 
+                            target="_blank">Different Kinds of Breast Lumps</a></li>
+                        <li id= "listOfResources"><a href="https://www.cancer.org/cancer/breast-cancer/non-cancerous-breast-conditions.html" 
+                            target="_blank">Non-cancerous Breast Conditions</a></li>
+                        <li id= "listOfResources"><a href="https://www.hopkinsmedicine.org/health/conditions-and-diseases/common-benign-lumps" 
+                            target="_blank">Common Benign Lumps</a></li>
+                        <li id= "listOfResources"><a href="https://my.clevelandclinic.org/health/articles/6270-benign-breast-disease" 
+                            target="_blank">Benign Breast Disease</a></li>
+                    </ul>
+                </div>
+                    
+                <script>showResources("{{prediction_text}}");</script>
+
+            </div>
+        </div>
+    </body>
+</html>
