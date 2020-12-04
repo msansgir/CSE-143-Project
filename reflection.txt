@@ -1,1 +1,17 @@
+What did you learn during this project?
+ Through this project, we were not only able to learn about training AI models, but we were also able to learn about how to make our AI model user-friendly by turning it into a web-application. Using web-frameworks like Flask was new to us, and through this project, we were better able to understand the role of web-frameworks. While creating the model, we were also able to better understand the different types of training models that were available to us, and how each model focussed on different aspects of the data, leading to different accuracies. We learned about the feature engineering that goes behind manipulating data in order to get the best success rate from a model. 
 
+
+
+What did you enjoy during this project?
+ Overall, we enjoyed the experience of researching, learning, and creating a working project. It was rewarding to not only fix our bugs, but also understand where and why our application wasn’t working the way it was supposed to through research. For example, at first, when running the application, a 404 file not found error would be thrown because the program could not find the icon image. Although our source path was correct, when run, the program could not locate the local path we were using. It was rewarding when we researched and discovered that the program would run smoothly if we made the image file an SVG. Building a machine learning model with a 99.4% accuracy was also rewarding as it shows the validity of our model in the real world and the tangible impact our work can have.
+
+
+
+What did you find challenging or frustrating during this project?
+ Trying to work around the syntax for creating graphs in Python as well as trying to improve the AI model was challenging. It was also difficult to understand the different components of Flask and knowing what we needed specifically for our project. As a result, connecting everything together to create a cohesive web-app was also challenging.
+
+
+
+What did you find particularly helpful for your learning during this project?
+ The problem-solving skills behind actually coming up with ways to improve a machine learning model and create and test various datasets are very important for future learning in this field. Learning how to incorporate Flask was also beneficial because the framework can be applied to many other projects involving Python. 
